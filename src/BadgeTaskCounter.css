@@ -1,0 +1,25 @@
+.BadgeTaskCounter {
+  border-radius: 99px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(35, 117, 240);
+  border: none;
+  color: white;
+  text-align: start;
+  text-decoration: none;
+  display: inline-flex;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  
+}
+.CountNumber {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background-color: #fefeff;
+  color: rgb(0, 0, 0);
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+}

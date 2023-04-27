@@ -1,0 +1,54 @@
+.Header {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  padding:7px 15px 7px 15px;
+  column-gap: 20px;
+  text-align: center;
+  background-color: #f2f2f2;
+}
+
+.BadgeTaskCounter {
+  border-radius: 20px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(35, 117, 240);
+  border: none;
+  color: white;
+  text-align: start;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.CountNumber {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background-color: #fefeff;
+  color: rgb(0, 0, 0);
+  border-radius: 50%;
+  border: 2px solid rgb(35, 117, 240);
+  height: 30px;
+  width: 30px;
+  color:rgb(35, 117, 240);
+}
+
+.TasksDeleteAndDone {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  background-color:#F65050;
+  border: none;
+  color: white;
+  text-align: start;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.TasksDeleteAndDone:hover{
+  background-color: #ec2424e1;
+}
