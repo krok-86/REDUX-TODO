@@ -11,7 +11,6 @@ const TaskString = ({ todo }) => {
   const changeTodo = () => dispatch(changeStatus({ id: todo.id }));
   const correctTodo = () =>
     dispatch(editTodo({ title: inputEdit, id: todo.id }));
-
   const [isEdit, setIsEdit] = useState(false);
   const [inputEdit, setInputEdit] = useState(todo.title);
   const [taskColor, setTaskColor] = useState(todo.status);
@@ -54,8 +53,7 @@ const TaskString = ({ todo }) => {
           </div>
         ) : (
           <div className="taskString-title" onClick={() => setIsEdit(true)}>
-            {" "}
-            {todo.title}{" "}
+            {todo.title}
           </div>
         )}
       </>

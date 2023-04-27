@@ -4,16 +4,16 @@ import { useSelector, useDispatch } from "react-redux";
 import { saveTodo } from "./store/todoSlice";
 
 function Bottom() {
-const [value, setValue] = useState("");
-const todo = useSelector(state => state.todo.todo);
-const dispatch = useDispatch();
-const addTask = () => dispatch(saveTodo(value));
-  
-const handleClick = () => {
+  const [value, setValue] = useState("");
+  const todo = useSelector((state) => state.todo.todo);
+  const dispatch = useDispatch();
+  const addTask = () => dispatch(saveTodo(value));
+
+  const handleClick = () => {
     if (value) {
       addTask();
       setValue("");
-    } 
+    }
   };
 
   const handleEnter = (e) => {
@@ -37,7 +37,7 @@ const handleClick = () => {
 
         <div
           className="material-icons add"
-          style={{ color:"#3e82c3" }}
+          style={{ color: "#3e82c3" }}
           onClick={handleClick}
         >
           add_circle
