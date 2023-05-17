@@ -1,7 +1,7 @@
 import "./Bottom.css";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { saveTodo } from "./store/todoSlice";
+import { saveTodo } from "../../store/todoSlice";
 
 function Bottom() {
   const [value, setValue] = useState("");

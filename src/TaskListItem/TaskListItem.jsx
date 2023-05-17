@@ -1,11 +1,11 @@
 import { useState } from "react";
-import "./TaskString.css";
+import styles from "./TaskListItem.module.css";
 import { useDispatch } from "react-redux";
 import { deleteTodo } from "./store/todoSlice";
 import { changeStatus } from "./store/todoSlice";
 import { editTodo } from "./store/todoSlice";
 
-const TaskString = ({ todo }) => {
+const TaskListItem = ({ todo }) => {
   const dispatch = useDispatch();
   const delTask = () => dispatch(deleteTodo({ id: todo.id }));
   const changeTodo = () => dispatch(changeStatus({ id: todo.id }));
@@ -31,7 +31,7 @@ const TaskString = ({ todo }) => {
   };
 
   return (
-    <div className="TaskString">
+    <div className={styles.TaskListItem}>
       <div
         className="material-icons circle"
         style={taskColor ? { color: "#42b883" } : { color: "#9c9692" }}
@@ -43,7 +43,7 @@ const TaskString = ({ todo }) => {
         {isEdit ? (
           <div>
             <input
-              className="inputString"
+              className={styles.inputString}
               type="text"
               placeholder="edit task"
               value={inputEdit}
@@ -70,4 +70,4 @@ const TaskString = ({ todo }) => {
   );
 };
 
-export default TaskString;
+export default TaskListItem;

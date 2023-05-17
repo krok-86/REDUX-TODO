@@ -1,15 +1,15 @@
-import "./Header.css";
+import styles from "./ControlToDo.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteTodoAll } from "./store/todoSlice";
-import { deleteTodoDone } from "./store/todoSlice";
+import { deleteTodoAll } from "../../store/todoSlice";
+import { deleteTodoDone } from "../../store/todoSlice";
 
-function Header({ todoDone }) {
+function ControlToDo({ todoDone }) {
   const todo = useSelector((state) => state.todo.todo);
   const dispatch = useDispatch();
   const removeTodoAll = () => dispatch(deleteTodoAll());
   const removeTodoDone = () => dispatch(deleteTodoDone([]));
   return (
-    <header className="Header">
+    <ControlToDo className={styles.ControlToDo}>
       <div className="BadgeTaskCounter">
         Tasks
         <div className="CountNumber">{todo.length}</div>
@@ -30,8 +30,8 @@ function Header({ todoDone }) {
           delete
         </div>
       </button>
-    </header>
+    </ControlToDo>
   );
 }
 
-export default Header;
+export default ControlToDo;

@@ -1,5 +1,5 @@
 import "./App.css";
-import MainToDo from "./MainToDo";
+import MainToDo from './components/MainTodo/MainToDo';
 
 function App() {
   return (

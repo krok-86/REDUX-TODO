@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
-import "./MainToDo.css";
+import styles from "./MainToDo.module.css";
 import { useSelector } from "react-redux";
-import Header from "./Header";
-import TaskString from "./TaskString";
 import Bottom from "./Bottom";
+import ControlToDo from './../ControlToDo/ControlToDo';
+import TaskListItem from './../../TaskListItem/TaskListItem';
 
 const MainToDo = () => {
   const [todoDone, setTodoDone] = useState(0);
@@ -30,14 +30,14 @@ const MainToDo = () => {
   };
 
   return (
-    <div className="MainToDo">
-      <Header todoDone={todoDone} />
-      <div className="ContainerStrings">
+    <div className={styles.mainToDo}>
+      <ControlToDo todoDone={todoDone} />
+      <div className={styles.containerStrings}>
         {todo.map((item) => (
-          <TaskString todo={item} editTodo={editTodo} key={uuidv4()} />
+          <TaskListItem todo={item} editTodo={editTodo} key={uuidv4()} />
         ))}
       </div>
-      <div className="ContainerBottom">
+      <div className={styles.containerBottom}>
         <Bottom />
       </div>
     </div>
