@@ -1,9 +1,9 @@
-import "./Bottom.css";
+import styles from "./InputForm.modele.css";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { saveTodo } from "../../store/todoSlice";
 
-function Bottom() {
+function InputForm() {
   const [value, setValue] = useState("");
   const todo = useSelector((state) => state.todo.todo);
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ function Bottom() {
   };
 
   return (
-    <div className="Bottom">
+    <div className={styles.inputForm}>
       <div className="InputTasks">
         <input
           className="InputBoard"
@@ -47,4 +47,4 @@ function Bottom() {
   );
 }
 
-export default Bottom;
+export default InputForm;
