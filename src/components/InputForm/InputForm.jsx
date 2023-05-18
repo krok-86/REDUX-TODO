@@ -1,4 +1,4 @@
-import styles from "./InputForm.modele.css";
+import styles from "./InputForm.module.css";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { saveTodo } from "../../store/todoSlice";
@@ -17,7 +17,7 @@ function InputForm() {
   };
 
   const handleEnter = (e) => {
-    if (e.key == "Enter" && value) {
+    if (e.key !== "Enter" && value) {
       addTask();
       setValue("");
     }
@@ -25,9 +25,9 @@ function InputForm() {
 
   return (
     <div className={styles.inputForm}>
-      <div className="InputTasks">
+      <div className={styles.inputTasks}>
         <input
-          className="InputBoard"
+          className={styles.inputBoard}
           type="text"
           placeholder="New task"
           value={value}

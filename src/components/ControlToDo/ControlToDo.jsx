@@ -3,34 +3,34 @@ import { useSelector, useDispatch } from "react-redux";
 import { deleteTodoAll } from "../../store/todoSlice";
 import { deleteTodoDone } from "../../store/todoSlice";
 
-function ControlToDo({ todoDone }) {
+function ControlToDo({ doneTodos }) {
   const todo = useSelector((state) => state.todo.todo);
   const dispatch = useDispatch();
   const removeTodoAll = () => dispatch(deleteTodoAll());
   const removeTodoDone = () => dispatch(deleteTodoDone([]));
   return (
-    <ControlToDo className={styles.ControlToDo}>
-      <div className="BadgeTaskCounter">
+    <header className={styles.controlToDo}>
+      <div className={styles.badgeTaskCounter}>
         Tasks
-        <div className="CountNumber">{todo.length}</div>
+        <div className={styles.countNumber}>{todo.length}</div>
       </div>
-      <div className="BadgeTaskCounter">
+      <div className={styles.badgeTaskCounter}>
         TasksDone
-        <div className="CountNumber">{todoDone}</div>
+        <div className={styles.countNumber}>{doneTodos}</div>
       </div>
-      <button className="TasksDeleteAndDone" onClick={removeTodoDone}>
+      <button className={styles.tasksDeleteAndDone} onClick={removeTodoDone}>
         Tasks Done
         <div className="material-icons" style={{ color: "white" }}>
           delete
         </div>
       </button>
-      <button onClick={removeTodoAll} className="TasksDeleteAndDone">
+      <button onClick={removeTodoAll} className={styles.tasksDeleteAndDone}>
         Tasks
         <div className="material-icons" style={{ color: "white" }}>
           delete
         </div>
       </button>
-    </ControlToDo>
+    </header>
   );
 }
 

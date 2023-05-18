@@ -1,4 +1,4 @@
-.ControlToDo {
+.controlToDo {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-end;
@@ -8,7 +8,7 @@
   background-color: #f2f2f2;
 }
 
-.BadgeTaskCounter {
+.badgeTaskCounter {
   border-radius: 20px;
   align-items: center;
   display: flex;
@@ -22,7 +22,7 @@
   cursor: pointer;
 }
 
-.CountNumber {
+.countNumber {
   align-items: center;
   display: flex;
   justify-content: center;
@@ -35,7 +35,7 @@
   color:rgb(35, 117, 240);
 }
 
-.TasksDeleteAndDone {
+.tasksDeleteAndDone {
   align-items: center;
   display: flex;
   justify-content: space-between;
@@ -49,6 +49,6 @@
   cursor: pointer;
 }
 
-.TasksDeleteAndDone:hover{
+.tasksDeleteAndDone:hover{
   background-color: #ec2424e1;
 }

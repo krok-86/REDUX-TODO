@@ -1,9 +1,9 @@
 import { useState } from "react";
 import styles from "./TaskListItem.module.css";
 import { useDispatch } from "react-redux";
-import { deleteTodo } from "./store/todoSlice";
-import { changeStatus } from "./store/todoSlice";
-import { editTodo } from "./store/todoSlice";
+import {deleteTodo} from "../../store/todoSlice"
+import { changeStatus } from "../../store/todoSlice";
+import { editTodo } from "../../store/todoSlice";
 
 const TaskListItem = ({ todo }) => {
   const dispatch = useDispatch();
@@ -16,10 +16,11 @@ const TaskListItem = ({ todo }) => {
   const [taskColor, setTaskColor] = useState(todo.status);
 
   const handleEnter = (e) => {
-    if (e.key == "Enter") {
-      correctTodo();
+    if (e.key !== "Enter") {
+      return
     }
-  };
+      correctTodo();
+    };
 
   const handleChange = (e) => {
     setInputEdit(e.target.value);
@@ -31,7 +32,7 @@ const TaskListItem = ({ todo }) => {
   };
 
   return (
-    <div className={styles.TaskListItem}>
+    <div className={styles.taskListItem}>
       <div
         className="material-icons circle"
         style={taskColor ? { color: "#42b883" } : { color: "#9c9692" }}
