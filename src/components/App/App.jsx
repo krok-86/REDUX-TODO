@@ -1,5 +1,6 @@
-import styles from"./App.module.css";
-import MainToDo from '../MainTodo/MainToDo';
+import styles from "./App.module.css";
+
+import MainToDo from "../MainTodo/MainToDo";
 
 function App() {
   return (

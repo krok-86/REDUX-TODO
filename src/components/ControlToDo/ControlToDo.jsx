@@ -1,7 +1,8 @@
-import styles from "./ControlToDo.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteTodoAll } from "../../store/todoSlice";
-import { deleteTodoDone } from "../../store/todoSlice";
+
+import styles from "./ControlToDo.module.css";
+
+import { deleteTodoAll, deleteTodoDone } from "../../store/todoSlice";
 
 function ControlToDo({ doneTodos }) {
   const todo = useSelector((state) => state.todo.todo);

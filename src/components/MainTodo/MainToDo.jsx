@@ -19,22 +19,13 @@ const MainToDo = () => {
     const newTodoDone = todo.filter((item) => item.status);
   };
 
-  const editTodo = (id, title) => {
-    todo.map((item) => {
-      if (item.id === id) {
-        item.title = title;
-      }
-      return item;
-    });
-    // newTodo;
-  };
-
+  
   return (
      <div className={styles.mainToDo}>
        <ControlToDo doneTodos={doneTodos} />
        <div className={styles.containerStrings}>
          {todo.map((item) => ( 
-          <TaskListItem todo={item} editTodo={editTodo} key={uuidv4()} />
+          <TaskListItem todo={item} key={uuidv4()} />
        ))}
        </div>
       <div className={styles.containerBottom}>

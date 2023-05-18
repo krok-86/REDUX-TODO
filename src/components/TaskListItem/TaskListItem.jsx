@@ -1,9 +1,9 @@
 import { useState } from "react";
-import styles from "./TaskListItem.module.css";
 import { useDispatch } from "react-redux";
-import {deleteTodo} from "../../store/todoSlice"
-import { changeStatus } from "../../store/todoSlice";
-import { editTodo } from "../../store/todoSlice";
+
+import { deleteTodo, changeStatus, editTodo } from "../../store/todoSlice";
+
+import styles from "./TaskListItem.module.css";
 
 const TaskListItem = ({ todo }) => {
   const dispatch = useDispatch();
@@ -13,14 +13,13 @@ const TaskListItem = ({ todo }) => {
     dispatch(editTodo({ title: inputEdit, id: todo.id }));
   const [isEdit, setIsEdit] = useState(false);
   const [inputEdit, setInputEdit] = useState(todo.title);
-  const [taskColor, setTaskColor] = useState(todo.status);
 
   const handleEnter = (e) => {
     if (e.key !== "Enter") {
-      return
+      return;
     }
-      correctTodo();
-    };
+    correctTodo();
+  };
 
   const handleChange = (e) => {
     setInputEdit(e.target.value);
@@ -28,14 +27,13 @@ const TaskListItem = ({ todo }) => {
 
   const handleStatus = () => {
     changeTodo();
-    setTaskColor(!taskColor);
   };
 
   return (
     <div className={styles.taskListItem}>
       <div
         className="material-icons circle"
-        style={taskColor ? { color: "#42b883" } : { color: "#9c9692" }}
+        style={todo.status ? { color: "#42b883" } : { color: "#9c9692" }}
         onClick={handleStatus}
       >
         check_circle

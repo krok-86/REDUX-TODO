@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { saveTodo } from "../../store/todoSlice";
 
+import AddIcon from '@mui/icons-material/Add';
+
 function InputForm() {
   const [value, setValue] = useState("");
   const todo = useSelector((state) => state.todo.todo);
@@ -35,13 +37,11 @@ function InputForm() {
           onKeyUp={(e) => handleEnter(e)}
         />
 
-        <div
-          className="material-icons add"
-          style={{ color: "#3e82c3" }}
+        <AddIcon
+          className={styles.add}
+          style={{}}
           onClick={handleClick}
-        >
-          add_circle
-        </div>
+        />
       </div>
     </div>
   );
