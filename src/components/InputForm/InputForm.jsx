@@ -1,13 +1,14 @@
-import styles from "./InputForm.module.css";
+import AddIcon from '@mui/icons-material/Add';
+
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { saveTodo } from "../../store/todoSlice";
 
-import AddIcon from '@mui/icons-material/Add';
+import styles from "./InputForm.module.css";
 
 function InputForm() {
   const [value, setValue] = useState("");
-  const todo = useSelector((state) => state.todo.todo);
+  const todo = useSelector((state) => state.todo.todo);//?
   const dispatch = useDispatch();
   const addTask = () => dispatch(saveTodo(value));
 
@@ -19,7 +20,7 @@ function InputForm() {
   };
 
   const handleEnter = (e) => {
-    if (e.key !== "Enter" && value) {
+    if (e.key == "Enter" && value) {
       addTask();
       setValue("");
     }

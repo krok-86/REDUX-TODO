@@ -15,7 +15,7 @@ const TaskListItem = ({ todo }) => {
   const [inputEdit, setInputEdit] = useState(todo.title);
 
   const handleEnter = (e) => {
-    if (e.key !== "Enter") {
+    if (e.key !== "Enter") {//have problem
       return;
     }
     correctTodo();
