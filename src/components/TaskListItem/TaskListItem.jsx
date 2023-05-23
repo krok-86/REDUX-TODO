@@ -4,25 +4,26 @@ import { useDispatch } from "react-redux";
 import { deleteTodo, changeStatus, editTodo } from "../../store/todoSlice";
 
 import styles from "./TaskListItem.module.css";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const TaskListItem = ({ todo }) => {
   const dispatch = useDispatch();
+
+  const [isEdit, setIsEdit] = useState(false);
+  const [inputEdit, setInputEdit] = useState(todo.title);
+
   const delTask = () => dispatch(deleteTodo({ id: todo.id }));
   const changeTodo = () => dispatch(changeStatus({ id: todo.id }));
   const correctTodo = () =>
     dispatch(editTodo({ title: inputEdit, id: todo.id }));
-  const [isEdit, setIsEdit] = useState(false);
-  const [inputEdit, setInputEdit] = useState(todo.title);
 
   const handleEnter = (e) => {
-    if (e.key !== "Enter") {//have problem
+    if (e.key !== "Enter") {
       return;
     }
     correctTodo();
-  };
-
-  const handleChange = (e) => {
-    setInputEdit(e.target.value);
+    setIsEdit(false);
   };
 
   const handleStatus = () => {
@@ -31,13 +32,11 @@ const TaskListItem = ({ todo }) => {
 
   return (
     <div className={styles.taskListItem}>
-      <div
-        className="material-icons circle"
+      <CheckCircleOutlineIcon
+        className={styles.circle}
         style={todo.status ? { color: "#42b883" } : { color: "#9c9692" }}
         onClick={handleStatus}
-      >
-        check_circle
-      </div>
+      />
       <>
         {isEdit ? (
           <div>
@@ -47,8 +46,8 @@ const TaskListItem = ({ todo }) => {
               placeholder="edit task"
               value={inputEdit}
               onKeyUp={(e) => handleEnter(e)}
-              onChange={(e) => handleChange(e)}
-            ></input>
+              onChange={(e) => setInputEdit(e.target.value)}
+            />
           </div>
         ) : (
           <div className="taskString-title" onClick={() => setIsEdit(true)}>
@@ -56,14 +55,12 @@ const TaskListItem = ({ todo }) => {
           </div>
         )}
       </>
-      <div className="delete">
-        <div
-          className="material-icons del"
+      <div>
+        <DeleteIcon
+          className={styles.del}
           style={{ color: "#F65050" }}
           onClick={delTask}
-        >
-          delete
-        </div>
+        />
       </div>
     </div>
   );

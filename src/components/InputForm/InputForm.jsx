@@ -1,29 +1,31 @@
 import AddIcon from '@mui/icons-material/Add';
 
 import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
 import { saveTodo } from "../../store/todoSlice";
+import { useDispatch } from 'react-redux';
 
 import styles from "./InputForm.module.css";
 
+
 function InputForm() {
-  const [value, setValue] = useState("");
-  const todo = useSelector((state) => state.todo.todo);//?
+
   const dispatch = useDispatch();
+
+  const [value, setValue] = useState("");
+
   const addTask = () => dispatch(saveTodo(value));
 
   const handleClick = () => {
-    if (value) {
-      addTask();
-      setValue("");
-    }
+    if (!value) { return };
+    addTask();
+    setValue("");
   };
 
   const handleEnter = (e) => {
-    if (e.key == "Enter" && value) {
-      addTask();
-      setValue("");
-    }
+    if (e.key !== "Enter" || !value) { return; };
+    addTask();
+    setValue("");
+    
   };
 
   return (
@@ -40,7 +42,6 @@ function InputForm() {
 
         <AddIcon
           className={styles.add}
-          style={{}}
           onClick={handleClick}
         />
       </div>
