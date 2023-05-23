@@ -1,4 +1,4 @@
-.TaskString {
+.taskListItem {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -11,7 +11,7 @@
   word-break: break-word;
 }
 
-.TaskString:hover {
+.taskListItem:hover {
   background-color: rgba(212, 209, 209, 0.4);
 }
 
